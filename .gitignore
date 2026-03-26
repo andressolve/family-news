@@ -1,0 +1,5 @@
+node_modules/
+dist/
+output/
+.env
+# docs/audio/ is intentionally NOT ignored — GitHub Pages serves the MP3s

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Family News Briefing</title>
+    <link>https://andressolve.github.io/family-news</link>
+    <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Mar 2026 13:07:48 GMT</lastBuildDate>
+    <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
+    <itunes:author>Andres</itunes:author>
+    <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
+    <itunes:category text="News" />
+    <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Thursday, March 26, 2026</title>
+      <description>The US-Israel military campaign against Iran is now in its fourth week, and the picture is shifting. Iran has rejected President Trump&apos;s ceasefire proposal and put forward a counterproposal demandi...</description>
+      <pubDate>Thu, 26 Mar 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-03-26.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-03-26.mp3" length="4692053" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+    <item>
+      <title>Family News — Wednesday, March 25, 2026</title>
+      <description>The biggest story remains the U.S.-Iran conflict, now entering its fourth week. Iran has received a 15-point ceasefire plan from Washington, delivered through Pakistani intermediaries. The proposal...</description>
+      <pubDate>Wed, 25 Mar 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-03-25.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-03-25.mp3" length="4860491" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+  </channel>
+</rss>
