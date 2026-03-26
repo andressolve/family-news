@@ -136,6 +136,20 @@ ${items}
 </rss>`;
 }
 
+function generateFlashBriefing(episodes: Episode[]): string {
+  const baseUrl = SITE_URL.replace(/\/$/, "");
+  // Flash Briefing wants max 5 items, newest first
+  const items = episodes.slice(0, 5).map((ep) => ({
+    uid: `family-news-${ep.date}`,
+    updateDate: `${ep.date}T08:00:00.0Z`,
+    titleText: ep.title,
+    mainText: "",
+    streamUrl: `${baseUrl}/audio/${ep.filename}`,
+    redirectionUrl: baseUrl,
+  }));
+  return JSON.stringify(items, null, 2);
+}
+
 async function main() {
   console.log("Publishing episodes...");
 
@@ -151,7 +165,13 @@ async function main() {
   const feedPath = join(DOCS_DIR, "feed.xml");
   const rss = generateRSS(episodes);
   await writeFile(feedPath, rss, "utf-8");
-  console.log(`Feed written: ${feedPath} (${episodes.length} episodes)`);
+  console.log(`RSS feed written: ${feedPath} (${episodes.length} episodes)`);
+
+  // Write Alexa Flash Briefing JSON feed
+  const flashPath = join(DOCS_DIR, "flash-briefing.json");
+  const flash = generateFlashBriefing(episodes);
+  await writeFile(flashPath, flash, "utf-8");
+  console.log(`Flash Briefing feed written: ${flashPath}`);
 
   // List published episodes
   for (const ep of episodes) {
@@ -159,7 +179,8 @@ async function main() {
     console.log(`  ${ep.date} — ${sizeMB} MB`);
   }
 
-  console.log(`\nFeed URL: ${SITE_URL}/feed.xml`);
+  console.log(`\nPodcast feed: ${SITE_URL}/feed.xml`);
+  console.log(`Flash Briefing: ${SITE_URL}/flash-briefing.json`);
 }
 
 main().catch((err) => {
