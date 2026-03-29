@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2026 14:56:40 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 19:19:18 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Sunday, March 29, 2026</title>
+      <description>The war in the Middle East enters its thirtieth day. Iran is warning against a US ground invasion as American troop deployments to the region continue to expand. On the diplomatic front, foreign mi...</description>
+      <pubDate>Sun, 29 Mar 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-03-29.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-03-29.mp3" length="2573565" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Saturday, March 28, 2026</title>
       <description>The Iran conflict hit its one-month mark yesterday. Iran struck Prince Sultan Air Base in Saudi Arabia, injuring at least ten US service members. Two had shrapnel wounds but none were killed. Separ...</description>
