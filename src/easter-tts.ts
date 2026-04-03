@@ -4,11 +4,11 @@ import { basename, join } from "node:path";
 import { execSync } from "node:child_process";
 import { GEMINI_API_KEY, GEMINI_TTS_MODEL, FFMPEG_PATH } from "./config.js";
 
-const EASTER_VOICE = "Gacrux"; // Mature — deep, steady, wisdom tone
+const EASTER_VOICE = "Algenib"; // Gravelly — deep, older, inspirational
 const EASTER_OUTPUT_DIR = "./output/easter";
 
 const PACING_INSTRUCTION =
-  "Say the following at a calm, steady, contemplative pace. Do not speed up. Maintain the same slow, deliberate speaking rate from beginning to end. Pause between sentences.\n\n";
+  "Read the following at a calm, steady pace. Do not speed up toward the end.\n\n";
 
 function stripMarkdown(text: string): string {
   return text
@@ -128,8 +128,48 @@ async function main() {
     pcmBuffers.push(pcm);
   }
 
-  // Concatenate all PCM buffers
-  const fullPcm = Buffer.concat(pcmBuffers);
+  // Crossfade: apply short fade-out/fade-in at chunk boundaries and insert silence gap
+  // PCM format: 16-bit signed LE, 24kHz mono → 2 bytes/sample, 24000 samples/sec
+  const SAMPLE_RATE = 24000;
+  const FADE_DURATION = 0.12; // seconds
+  const GAP_DURATION = 0.5; // silence between chunks
+  const fadeSamples = Math.floor(SAMPLE_RATE * FADE_DURATION);
+  const gapBytes = Math.floor(SAMPLE_RATE * GAP_DURATION) * 2;
+  const silenceGap = Buffer.alloc(gapBytes, 0);
+
+  function applyFades(pcm: Buffer): Buffer {
+    const buf = Buffer.from(pcm); // copy to avoid mutating original
+    const totalSamples = buf.length / 2;
+
+    // Fade in
+    for (let i = 0; i < fadeSamples && i < totalSamples; i++) {
+      const gain = i / fadeSamples;
+      const sample = buf.readInt16LE(i * 2);
+      buf.writeInt16LE(Math.round(sample * gain), i * 2);
+    }
+
+    // Fade out
+    for (let i = 0; i < fadeSamples && i < totalSamples; i++) {
+      const pos = totalSamples - 1 - i;
+      const gain = i / fadeSamples;
+      const sample = buf.readInt16LE(pos * 2);
+      buf.writeInt16LE(Math.round(sample * gain), pos * 2);
+    }
+
+    return buf;
+  }
+
+  // Apply fades and join with silence gaps
+  const parts: Buffer[] = [];
+  for (let i = 0; i < pcmBuffers.length; i++) {
+    parts.push(applyFades(pcmBuffers[i]));
+    if (i < pcmBuffers.length - 1) {
+      parts.push(silenceGap);
+    }
+  }
+  const fullPcm = Buffer.concat(parts);
+  console.log(`Applied ${FADE_DURATION}s fades + ${GAP_DURATION}s gaps between ${pcmBuffers.length} chunks`);
+
   const pcmPath = join(EASTER_OUTPUT_DIR, `${name}.pcm`);
   await writeFile(pcmPath, fullPcm);
 

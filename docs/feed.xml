@@ -7,7 +7,7 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2026 15:54:29 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 17:01:02 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
@@ -23,10 +23,10 @@
     </item>
     <item>
       <title>Easter Triduum — Holy Saturday: The Silence</title>
-      <description>Francisco, Sebastian — today is Holy Saturday. It is the strangest day of the year. Nothing happens. And that is the whole point.</description>
+      <description>Francisco, Sebastian — today is Holy Saturday.</description>
       <pubDate>Sat, 04 Apr 2026 15:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3</guid>
-      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3" length="3669117" type="audio/mpeg" />
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3" length="2957325" type="audio/mpeg" />
       <itunes:duration>300</itunes:duration>
     </item>
     <item>

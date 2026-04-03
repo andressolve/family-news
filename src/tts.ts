@@ -11,7 +11,7 @@ import {
 } from "./config.js";
 
 const PACING_INSTRUCTION =
-  "Say the following at a calm, steady, even pace throughout. Do not speed up. Maintain the same speaking rate from beginning to end.\n\n";
+  "Read the following at a calm, steady pace. Do not speed up toward the end.\n\n";
 
 function stripMarkdown(text: string): string {
   return text
