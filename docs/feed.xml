@@ -7,12 +7,28 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2026 10:56:02 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 14:03:28 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Friday, April 3, 2026</title>
+      <description>The Iran war is in its thirty-fifth day and there&apos;s no off-ramp in sight. Trump&apos;s primetime address on Tuesday promised the conflict would wrap up in two to three weeks, but he also vowed to hit Ir...</description>
+      <pubDate>Fri, 03 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-03.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-03.mp3" length="2857989" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+    <item>
+      <title>Family News — Thursday, April 2, 2026</title>
+      <description>President Trump addressed the nation last night in his first primetime speech on the Iran war, now in its thirty-third day. The roughly twenty-minute address was heavy on confident rhetoric but lig...</description>
+      <pubDate>Thu, 02 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-02.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-02.mp3" length="2687493" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Wednesday, April 1, 2026</title>
       <description>The war in Iran is entering its second month, and the situation is getting more complicated by the day. President Trump has signaled interest in winding down the campaign, but Iran is warning the U...</description>

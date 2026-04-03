@@ -1,5 +1,21 @@
 [
   {
+    "uid": "family-news-2026-04-03",
+    "updateDate": "2026-04-03T08:00:00.0Z",
+    "titleText": "Family News — Friday, April 3, 2026",
+    "mainText": "",
+    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-03.mp3",
+    "redirectionUrl": "https://andressolve.github.io/family-news"
+  },
+  {
+    "uid": "family-news-2026-04-02",
+    "updateDate": "2026-04-02T08:00:00.0Z",
+    "titleText": "Family News — Thursday, April 2, 2026",
+    "mainText": "",
+    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-02.mp3",
+    "redirectionUrl": "https://andressolve.github.io/family-news"
+  },
+  {
     "uid": "family-news-2026-04-01",
     "updateDate": "2026-04-01T08:00:00.0Z",
     "titleText": "Family News — Wednesday, April 1, 2026",
@@ -21,22 +37,6 @@
     "titleText": "Family News — Monday, March 30, 2026",
     "mainText": "",
     "streamUrl": "https://andressolve.github.io/family-news/audio/2026-03-30.mp3",
-    "redirectionUrl": "https://andressolve.github.io/family-news"
-  },
-  {
-    "uid": "family-news-2026-03-29",
-    "updateDate": "2026-03-29T08:00:00.0Z",
-    "titleText": "Family News — Sunday, March 29, 2026",
-    "mainText": "",
-    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-03-29.mp3",
-    "redirectionUrl": "https://andressolve.github.io/family-news"
-  },
-  {
-    "uid": "family-news-2026-03-28",
-    "updateDate": "2026-03-28T08:00:00.0Z",
-    "titleText": "Family News — Saturday, March 28, 2026",
-    "mainText": "",
-    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-03-28.mp3",
     "redirectionUrl": "https://andressolve.github.io/family-news"
   }
 ]
