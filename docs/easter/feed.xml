@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Easter Triduum</title>
+    <link>https://andressolve.github.io/family-news/easter</link>
+    <description>A three-day Easter series for the family. Good Friday, Holy Saturday, Easter Sunday — the story told simply and seriously.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Apr 2026 15:01:28 GMT</lastBuildDate>
+    <atom:link href="https://andressolve.github.io/family-news/easter/feed.xml" rel="self" type="application/rss+xml" />
+    <itunes:author>Andres</itunes:author>
+    <itunes:summary>A three-day Easter series for the family. Good Friday, Holy Saturday, Easter Sunday — the story told simply and seriously.</itunes:summary>
+    <itunes:category text="Religion &amp; Spirituality" />
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>serial</itunes:type>
+    <item>
+      <title>Good Friday — The Passion</title>
+      <description>Francisco, Sebastian — today is Good Friday. It is the most solemn day in the Christian calendar. And I want to tell you what happened, because the story itself deserves to be heard.</description>
+      <pubDate>Fri, 03 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/easter/audio/friday.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/easter/audio/friday.mp3" length="1846077" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+    </item>
+    <item>
+      <title>Holy Saturday — The Silence</title>
+      <description>Francisco, Sebastian — today is Holy Saturday. It is the strangest day of the year. Nothing happens. And that is the whole point.</description>
+      <pubDate>Sat, 04 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/easter/audio/saturday.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/easter/audio/saturday.mp3" length="2150469" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+    </item>
+    <item>
+      <title>Easter Sunday — The Resurrection</title>
+      <description>Francisco, Sebastian — it is Sunday morning. And the story turns.</description>
+      <pubDate>Sun, 05 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/easter/audio/sunday.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/easter/audio/sunday.mp3" length="1718421" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+    </item>
+  </channel>
+</rss>
