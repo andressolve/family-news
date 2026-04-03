@@ -7,12 +7,36 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2026 14:03:28 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 15:54:29 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Easter Triduum — Easter Sunday: The Resurrection</title>
+      <description>Francisco, Sebastian — it is Sunday morning. And the story turns.</description>
+      <pubDate>Sun, 05 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-05-easter.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-05-easter.mp3" length="6562917" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+    <item>
+      <title>Easter Triduum — Holy Saturday: The Silence</title>
+      <description>Francisco, Sebastian — today is Holy Saturday. It is the strangest day of the year. Nothing happens. And that is the whole point.</description>
+      <pubDate>Sat, 04 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3" length="3669117" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+    <item>
+      <title>Easter Triduum — Good Friday: The Passion</title>
+      <description>Francisco, Sebastian — today is Good Friday. It is the most solemn day in the Christian calendar. And I want to tell you what happened, because the story itself deserves to be heard.</description>
+      <pubDate>Fri, 03 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-03-easter.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-03-easter.mp3" length="6338853" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Friday, April 3, 2026</title>
       <description>The Iran war is in its thirty-fifth day and there&apos;s no off-ramp in sight. Trump&apos;s primetime address on Tuesday promised the conflict would wrap up in two to three weeks, but he also vowed to hit Ir...</description>

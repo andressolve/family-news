@@ -56,16 +56,24 @@ async function gatherEpisodes(): Promise<Episode[]> {
   const audioDir = join(DOCS_DIR, "audio");
   await mkdir(audioDir, { recursive: true });
 
-  // Find all MP3 files in output/
+  // Find all MP3 files in output/ — date-based (YYYY-MM-DD.mp3) and tagged (YYYY-MM-DD-tag.mp3)
   const outputFiles = await readdir(OUTPUT_DIR);
   const mp3Files = outputFiles.filter(
-    (f) => f.endsWith(".mp3") && f.match(/^\d{4}-\d{2}-\d{2}\.mp3$/)
+    (f) => f.endsWith(".mp3") && f.match(/^\d{4}-\d{2}-\d{2}(-\w+)?\.mp3$/)
   );
+
+  // Easter episode titles
+  const SPECIAL_TITLES: Record<string, string> = {
+    "2026-04-03-easter": "Easter Triduum — Good Friday: The Passion",
+    "2026-04-04-easter": "Easter Triduum — Holy Saturday: The Silence",
+    "2026-04-05-easter": "Easter Triduum — Easter Sunday: The Resurrection",
+  };
 
   const episodes: Episode[] = [];
 
   for (const mp3 of mp3Files) {
-    const date = basename(mp3, ".mp3");
+    const stem = basename(mp3, ".mp3"); // e.g. "2026-04-03" or "2026-04-03-easter"
+    const date = stem.slice(0, 10); // always YYYY-MM-DD
     const srcPath = join(OUTPUT_DIR, mp3);
     const destPath = join(audioDir, mp3);
 
@@ -77,17 +85,34 @@ async function gatherEpisodes(): Promise<Episode[]> {
 
     // Try to read matching script for description
     let description = "Daily family news briefing";
-    try {
-      const scriptPath = join(SCRIPTS_DIR, `${date}.md`);
-      const scriptContent = await readFile(scriptPath, "utf-8");
-      description = extractDescription(scriptContent);
-    } catch {
-      // No matching script, use default
+    let title = `Family News — ${formatDate(date)}`;
+
+    if (SPECIAL_TITLES[stem]) {
+      title = SPECIAL_TITLES[stem];
+      // Try easter script directory
+      const easterSlug = stem.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+      const easterScriptMap: Record<string, string> = {
+        "2026-04-03-easter": "friday",
+        "2026-04-04-easter": "saturday",
+        "2026-04-05-easter": "sunday",
+      };
+      const scriptName = easterScriptMap[stem] || easterSlug;
+      try {
+        const scriptPath = join(SCRIPTS_DIR, "easter", `${scriptName}.md`);
+        const scriptContent = await readFile(scriptPath, "utf-8");
+        description = extractDescription(scriptContent);
+      } catch {}
+    } else {
+      try {
+        const scriptPath = join(SCRIPTS_DIR, `${date}.md`);
+        const scriptContent = await readFile(scriptPath, "utf-8");
+        description = extractDescription(scriptContent);
+      } catch {}
     }
 
     episodes.push({
       date,
-      title: `Family News — ${formatDate(date)}`,
+      title,
       description,
       filename: mp3,
       sizeBytes: info.size,

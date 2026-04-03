@@ -7,6 +7,9 @@ import { GEMINI_API_KEY, GEMINI_TTS_MODEL, FFMPEG_PATH } from "./config.js";
 const EASTER_VOICE = "Gacrux"; // Mature — deep, steady, wisdom tone
 const EASTER_OUTPUT_DIR = "./output/easter";
 
+const PACING_INSTRUCTION =
+  "Say the following at a calm, steady, contemplative pace. Do not speed up. Maintain the same slow, deliberate speaking rate from beginning to end. Pause between sentences.\n\n";
+
 function stripMarkdown(text: string): string {
   return text
     .replace(/^#{1,6}\s+/gm, "")
@@ -20,6 +23,73 @@ function stripMarkdown(text: string): string {
     .replace(/---+/g, "")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+/** Split text into chunks on paragraph boundaries, merging small ones
+ *  so each chunk has at least MIN_WORDS words. */
+const MIN_WORDS = 80;
+
+function splitIntoChunks(text: string): string[] {
+  const paragraphs = text
+    .split(/\n\n+/)
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0);
+
+  const chunks: string[] = [];
+  let current = "";
+
+  for (const para of paragraphs) {
+    if (current) {
+      current += "\n\n" + para;
+    } else {
+      current = para;
+    }
+
+    if (current.split(/\s+/).length >= MIN_WORDS) {
+      chunks.push(current);
+      current = "";
+    }
+  }
+
+  // Append remainder to last chunk or push as final chunk
+  if (current) {
+    if (chunks.length > 0 && current.split(/\s+/).length < MIN_WORDS) {
+      chunks[chunks.length - 1] += "\n\n" + current;
+    } else {
+      chunks.push(current);
+    }
+  }
+
+  return chunks;
+}
+
+async function generateChunkAudio(
+  ai: GoogleGenAI,
+  text: string
+): Promise<Buffer> {
+  const response = await ai.models.generateContent({
+    model: GEMINI_TTS_MODEL,
+    contents: [{ parts: [{ text: PACING_INSTRUCTION + text }] }],
+    config: {
+      responseModalities: ["AUDIO"],
+      speechConfig: {
+        voiceConfig: {
+          prebuiltVoiceConfig: {
+            voiceName: EASTER_VOICE,
+          },
+        },
+      },
+    },
+  });
+
+  const audioData =
+    response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+  if (!audioData) {
+    throw new Error("No audio data in response for chunk");
+  }
+
+  return Buffer.from(audioData, "base64");
 }
 
 async function main() {
@@ -42,36 +112,28 @@ async function main() {
   const name = basename(scriptPath, ".md");
   await mkdir(EASTER_OUTPUT_DIR, { recursive: true });
   const outputPath = join(EASTER_OUTPUT_DIR, `${name}.mp3`);
-  const pcmPath = join(EASTER_OUTPUT_DIR, `${name}.pcm`);
 
+  // Split into paragraph chunks to prevent pacing drift
+  const chunks = splitIntoChunks(text);
+  console.log(`Split into ${chunks.length} chunks for even pacing`);
   console.log(`Generating audio with voice=${EASTER_VOICE}, model=${GEMINI_TTS_MODEL}...`);
+
   const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
-  const response = await ai.models.generateContent({
-    model: GEMINI_TTS_MODEL,
-    contents: [{ parts: [{ text }] }],
-    config: {
-      responseModalities: ["AUDIO"],
-      speechConfig: {
-        voiceConfig: {
-          prebuiltVoiceConfig: {
-            voiceName: EASTER_VOICE,
-          },
-        },
-      },
-    },
-  });
-
-  const audioData =
-    response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-
-  if (!audioData) {
-    throw new Error("No audio data in response");
+  // Generate audio for each chunk
+  const pcmBuffers: Buffer[] = [];
+  for (let i = 0; i < chunks.length; i++) {
+    console.log(`  Chunk ${i + 1}/${chunks.length} (${chunks[i].split(/\s+/).length} words)...`);
+    const pcm = await generateChunkAudio(ai, chunks[i]);
+    pcmBuffers.push(pcm);
   }
 
-  const pcmBuffer = Buffer.from(audioData, "base64");
-  await writeFile(pcmPath, pcmBuffer);
+  // Concatenate all PCM buffers
+  const fullPcm = Buffer.concat(pcmBuffers);
+  const pcmPath = join(EASTER_OUTPUT_DIR, `${name}.pcm`);
+  await writeFile(pcmPath, fullPcm);
 
+  // Convert PCM to MP3 using ffmpeg
   execSync(
     `"${FFMPEG_PATH}" -y -f s16le -ar 24000 -ac 1 -i "${pcmPath}" -codec:a libmp3lame -qscale:a 2 "${outputPath}"`,
     { stdio: "pipe" }

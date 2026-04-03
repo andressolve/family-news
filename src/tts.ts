@@ -1,13 +1,17 @@
-import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { GoogleGenAI } from "@google/genai";
+import { readFile, writeFile, mkdir, unlink } from "node:fs/promises";
 import { basename, join } from "node:path";
+import { execSync } from "node:child_process";
 import {
-  ELEVENLABS_API_KEY,
-  VOICE_ID,
-  MODEL_ID,
-  OUTPUT_FORMAT,
+  GEMINI_API_KEY,
+  GEMINI_TTS_MODEL,
+  GEMINI_VOICE,
+  FFMPEG_PATH,
   OUTPUT_DIR,
 } from "./config.js";
+
+const PACING_INSTRUCTION =
+  "Say the following at a calm, steady, even pace throughout. Do not speed up. Maintain the same speaking rate from beginning to end.\n\n";
 
 function stripMarkdown(text: string): string {
   return text
@@ -24,6 +28,74 @@ function stripMarkdown(text: string): string {
     .trim();
 }
 
+/** Split text into chunks on paragraph boundaries, merging small ones
+ *  so each chunk has at least MIN_WORDS words. */
+const MIN_WORDS = 80;
+
+function splitIntoChunks(text: string): string[] {
+  const paragraphs = text
+    .split(/\n\n+/)
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0);
+
+  const chunks: string[] = [];
+  let current = "";
+
+  for (const para of paragraphs) {
+    if (current) {
+      current += "\n\n" + para;
+    } else {
+      current = para;
+    }
+
+    if (current.split(/\s+/).length >= MIN_WORDS) {
+      chunks.push(current);
+      current = "";
+    }
+  }
+
+  // Append remainder to last chunk or push as final chunk
+  if (current) {
+    if (chunks.length > 0 && current.split(/\s+/).length < MIN_WORDS) {
+      chunks[chunks.length - 1] += "\n\n" + current;
+    } else {
+      chunks.push(current);
+    }
+  }
+
+  return chunks;
+}
+
+async function generateChunkAudio(
+  ai: GoogleGenAI,
+  text: string,
+  voice: string
+): Promise<Buffer> {
+  const response = await ai.models.generateContent({
+    model: GEMINI_TTS_MODEL,
+    contents: [{ parts: [{ text: PACING_INSTRUCTION + text }] }],
+    config: {
+      responseModalities: ["AUDIO"],
+      speechConfig: {
+        voiceConfig: {
+          prebuiltVoiceConfig: {
+            voiceName: voice,
+          },
+        },
+      },
+    },
+  });
+
+  const audioData =
+    response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+  if (!audioData) {
+    throw new Error("No audio data in response for chunk");
+  }
+
+  return Buffer.from(audioData, "base64");
+}
+
 async function main() {
   const scriptPath = process.argv[2];
   if (!scriptPath) {
@@ -32,8 +104,8 @@ async function main() {
     process.exit(1);
   }
 
-  if (!ELEVENLABS_API_KEY) {
-    console.error("Error: ELEVENLABS_API_KEY not set in .env");
+  if (!GEMINI_API_KEY) {
+    console.error("Error: GEMINI_API_KEY not set in .env");
     process.exit(1);
   }
 
@@ -48,25 +120,37 @@ async function main() {
   await mkdir(OUTPUT_DIR, { recursive: true });
   const outputPath = join(OUTPUT_DIR, `${name}.mp3`);
 
-  // Call ElevenLabs TTS
-  console.log(`Generating audio with voice=${VOICE_ID}, model=${MODEL_ID}...`);
-  const client = new ElevenLabsClient({ apiKey: ELEVENLABS_API_KEY });
+  // Split into paragraph chunks to prevent pacing drift
+  const chunks = splitIntoChunks(text);
+  console.log(`Split into ${chunks.length} chunks for even pacing`);
+  console.log(`Generating audio with voice=${GEMINI_VOICE}, model=${GEMINI_TTS_MODEL}...`);
 
-  const stream = await client.textToSpeech.convert(VOICE_ID, {
-    text,
-    modelId: MODEL_ID,
-    outputFormat: OUTPUT_FORMAT,
-  });
+  const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
-  // Collect stream into buffer and write to file
-  const chunks: Uint8Array[] = [];
-  for await (const chunk of stream) {
-    chunks.push(chunk);
+  // Generate audio for each chunk
+  const pcmBuffers: Buffer[] = [];
+  for (let i = 0; i < chunks.length; i++) {
+    console.log(`  Chunk ${i + 1}/${chunks.length} (${chunks[i].split(/\s+/).length} words)...`);
+    const pcm = await generateChunkAudio(ai, chunks[i], GEMINI_VOICE);
+    pcmBuffers.push(pcm);
   }
-  const buffer = Buffer.concat(chunks);
-  await writeFile(outputPath, buffer);
 
-  const sizeMB = (buffer.length / 1024 / 1024).toFixed(1);
+  // Concatenate all PCM buffers
+  const fullPcm = Buffer.concat(pcmBuffers);
+  const pcmPath = join(OUTPUT_DIR, `${name}.pcm`);
+  await writeFile(pcmPath, fullPcm);
+
+  // Convert PCM to MP3 using ffmpeg
+  execSync(
+    `"${FFMPEG_PATH}" -y -f s16le -ar 24000 -ac 1 -i "${pcmPath}" -codec:a libmp3lame -qscale:a 2 "${outputPath}"`,
+    { stdio: "pipe" }
+  );
+
+  // Clean up temp PCM file
+  await unlink(pcmPath);
+
+  const mp3Buffer = await readFile(outputPath);
+  const sizeMB = (mp3Buffer.length / 1024 / 1024).toFixed(1);
   console.log(`Done! Saved ${outputPath} (${sizeMB} MB)`);
 }
 
