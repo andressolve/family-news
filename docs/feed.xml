@@ -7,7 +7,7 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2026 17:01:02 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 17:13:52 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
@@ -27,6 +27,14 @@
       <pubDate>Sat, 04 Apr 2026 15:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3</guid>
       <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-04-easter.mp3" length="2957325" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+    <item>
+      <title>Family News — Saturday, April 4, 2026</title>
+      <description>The war with Iran is now entering its sixth week. Yesterday, two U.S. combat aircraft were lost — an F-fifteen fighter jet shot down over Iranian territory and an A-ten attack plane that crashed ne...</description>
+      <pubDate>Sat, 04 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-04.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-04.mp3" length="3264717" type="audio/mpeg" />
       <itunes:duration>300</itunes:duration>
     </item>
     <item>
