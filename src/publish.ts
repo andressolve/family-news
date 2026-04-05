@@ -59,14 +59,14 @@ async function gatherEpisodes(): Promise<Episode[]> {
   // Find all MP3 files in output/ — date-based (YYYY-MM-DD.mp3) and tagged (YYYY-MM-DD-tag.mp3)
   const outputFiles = await readdir(OUTPUT_DIR);
   const mp3Files = outputFiles.filter(
-    (f) => f.endsWith(".mp3") && f.match(/^\d{4}-\d{2}-\d{2}(-\w+)?\.mp3$/)
+    (f) => f.endsWith(".mp3") && f.match(/^\d{4}-\d{2}-\d{2}(-[\w-]+)?\.mp3$/)
   );
 
   // Easter episode titles
   const SPECIAL_TITLES: Record<string, string> = {
     "2026-04-03-easter": "Easter Triduum — Good Friday: The Passion",
     "2026-04-04-easter": "Easter Triduum — Holy Saturday: The Silence",
-    "2026-04-05-easter": "Easter Triduum — Easter Sunday: The Resurrection",
+    "2026-04-05-easter-final": "Easter Triduum — Easter Sunday: The Resurrection",
   };
 
   const episodes: Episode[] = [];
@@ -94,7 +94,7 @@ async function gatherEpisodes(): Promise<Episode[]> {
       const easterScriptMap: Record<string, string> = {
         "2026-04-03-easter": "friday",
         "2026-04-04-easter": "saturday",
-        "2026-04-05-easter": "sunday",
+        "2026-04-05-easter-final": "sunday",
       };
       const scriptName = easterScriptMap[stem] || easterSlug;
       try {
