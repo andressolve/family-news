@@ -1,5 +1,13 @@
 [
   {
+    "uid": "family-news-2026-04-07",
+    "updateDate": "2026-04-07T08:00:00.0Z",
+    "titleText": "Family News — Tuesday, April 7, 2026",
+    "mainText": "",
+    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-07.mp3",
+    "redirectionUrl": "https://andressolve.github.io/family-news"
+  },
+  {
     "uid": "family-news-2026-04-05",
     "updateDate": "2026-04-05T08:00:00.0Z",
     "titleText": "Easter Triduum — Easter Sunday: The Resurrection",
@@ -29,14 +37,6 @@
     "titleText": "Family News — Saturday, April 4, 2026",
     "mainText": "",
     "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-04.mp3",
-    "redirectionUrl": "https://andressolve.github.io/family-news"
-  },
-  {
-    "uid": "family-news-2026-04-03",
-    "updateDate": "2026-04-03T08:00:00.0Z",
-    "titleText": "Easter Triduum — Good Friday: The Passion",
-    "mainText": "",
-    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-03-easter.mp3",
     "redirectionUrl": "https://andressolve.github.io/family-news"
   }
 ]
