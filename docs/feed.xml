@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2026 12:54:11 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 13:05:43 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Friday, April 10, 2026</title>
+      <description>High-stakes diplomacy begins tomorrow in Islamabad. The US delegation, led by Vice President JD Vance along with special envoy Steve Witkoff and Jared Kushner, is heading to Pakistan for talks aime...</description>
+      <pubDate>Fri, 10 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-10.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-10.mp3" length="3172101" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Thursday, April 9, 2026</title>
       <description>The fragile two-week ceasefire between the United States, Israel, and Iran is already under severe strain. While the deal brokered through Pakistani mediation paused five weeks of direct conflict, ...</description>
