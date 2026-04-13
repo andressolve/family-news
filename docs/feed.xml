@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Apr 2026 14:19:13 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2026 12:15:38 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Monday, April 13, 2026</title>
+      <description>The biggest story overnight is Hungary. Voters turned out in record numbers, the highest since the nineteen nineties, and ended Viktor Orban&apos;s sixteen-year grip on power. His Fidesz party was swept...</description>
+      <pubDate>Mon, 13 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-13.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-13.mp3" length="3280389" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Sunday, April 12, 2026</title>
       <description>The big story this week remains the US-Iran standoff, and where things go from here is still very much an open question. Peace talks in Islamabad wrapped up after twenty-one hours with no deal. Vic...</description>
