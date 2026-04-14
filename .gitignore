@@ -1,6 +1,0 @@
-node_modules/
-dist/
-output/
-.env
-# docs/ is pushed to the public repo (andressolve/family-news) by publish.ts
-# It should NOT be tracked in the private repo
