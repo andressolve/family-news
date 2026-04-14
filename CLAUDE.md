@@ -103,9 +103,9 @@ When the user asks to "generate today's news briefing" (or similar), follow thes
 
 ### Key Files
 - `prompts/briefing-prompt.md` — The briefing template (edit to change format/tone)
-- `src/tts.ts` — ElevenLabs TTS conversion utility
-- `src/config.ts` — Voice ID, model, output format
-- `.env` — API key and voice ID
+- `src/tts.ts` — Gemini TTS conversion utility (was ElevenLabs, switched March 28 2026)
+- `src/config.ts` — Voice, model, output format, ffmpeg path
+- `.env` — API keys (GEMINI_API_KEY, ELEVENLABS_API_KEY, FFMPEG_PATH)
 
 ### Learnings & Notes for Future Sessions
 
@@ -129,15 +129,25 @@ When the user asks to "generate today's news briefing" (or similar), follow thes
 - **Verify temporal framing.** WebSearch results often surface stories from the past 3-5 days alongside today's news. Always check when a story actually happened and frame it correctly (e.g., "investigators are still working on Monday's crash" not "a plane crashed today").
 - **Be skeptical of speculative financial articles.** Search summaries can present "stock split watch" or "could X happen?" articles as confirmed facts. If a financial event isn't reported by Reuters, Bloomberg, or the company itself, don't state it as fact.
 
+**Gemini TTS (primary — switched from ElevenLabs on March 28 2026):**
+- SDK: `@google/genai`. Model: `gemini-2.5-flash-preview-tts`.
+- Voice "Charon" — calm, professional male. Good news anchor tone. 30 voices available total.
+- Returns raw PCM audio (16-bit mono, 24kHz) as base64. Requires ffmpeg to convert to MP3.
+- ffmpeg installed via winget (`Gyan.FFmpeg`). Full path set in `.env` as `FFMPEG_PATH` because shell PATH doesn't always pick it up.
+- Input limit: 8,192 tokens (~6K-7K words). Our 750-word scripts are well within limits.
+- Output is smaller than ElevenLabs (~2.4 MB vs ~4.5 MB for same script length).
+- Much cheaper than ElevenLabs. Free tier is generous. No credit quota issues.
+- ElevenLabs code kept as reference but no longer used. Free tier hit 10K credit limit after ~4 briefings.
+
 **Project architecture:**
 - Hybrid approach works well: Claude Code does research + writing (leverages WebSearch), Node.js script handles TTS (deterministic, repeatable).
-- The `scripts/` directory as intermediate artifact is valuable — lets you review before spending ElevenLabs credits, and keeps an archive.
+- The `scripts/` directory as intermediate artifact is valuable — lets you review before spending API credits, and keeps an archive.
 - Future automation path: replace Claude Code research step with Anthropic API + web search tool in a standalone `src/research.ts`. TTS code stays unchanged.
 
-**Podcast feed (GitHub Pages):**
-- Episodes are published via `src/publish.ts` which copies MP3s from `output/` to `docs/audio/` and regenerates `docs/feed.xml`.
-- The `docs/` folder is served by GitHub Pages at `https://andressolve.github.io/family-news/`.
+**Podcast feed (GitHub Pages) — two-repo setup:**
+- **Private repo:** `andressolve/family-news-app` — all source code, scripts, prompts, config. This is the working repo (origin).
+- **Public repo:** `andressolve/family-news` — only `docs/` content (audio files, feed.xml, index.html). Served by GitHub Pages. Configured as git remote `public`.
+- `src/publish.ts` copies MP3s to `docs/audio/`, regenerates `docs/feed.xml`, and pushes `docs/` to the public repo automatically.
 - RSS feed URL: `https://andressolve.github.io/family-news/feed.xml` — subscribe in any podcast app (Apple Podcasts, Pocket Casts, Spotify, etc.) or use on Alexa/Google speakers.
 - `docs/index.html` is a simple web player fallback — bookmark on phone for quick access.
-- The `/generatenews` command handles the full pipeline including publish + git push.
-- GitHub repo: `andressolve/family-news` (public — anyone with the URL can access, but it's not discoverable).
+- The `/generatenews` command handles the full pipeline: research, write, TTS, publish to public repo, commit source to private repo.

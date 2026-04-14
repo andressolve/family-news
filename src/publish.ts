@@ -1,6 +1,9 @@
 import { readdir, readFile, copyFile, writeFile, mkdir, stat } from "node:fs/promises";
 import { join, basename } from "node:path";
+import { execSync } from "node:child_process";
 import { OUTPUT_DIR, SCRIPTS_DIR, DOCS_DIR, SITE_URL } from "./config.js";
+
+const PUBLIC_REPO = "https://github.com/andressolve/family-news.git";
 
 interface Episode {
   date: string; // YYYY-MM-DD
@@ -206,6 +209,22 @@ async function main() {
 
   console.log(`\nPodcast feed: ${SITE_URL}/feed.xml`);
   console.log(`Flash Briefing: ${SITE_URL}/flash-briefing.json`);
+
+  // Push docs/ to the public GitHub Pages repo
+  console.log("\nPushing to public repo...");
+  try {
+    execSync(`git add docs/`, { stdio: "inherit" });
+    execSync(`git commit -m "Update feed — ${episodes[0]?.date ?? "latest"}"`, { stdio: "inherit" });
+    execSync(`git push public main`, { stdio: "inherit" });
+    console.log("Public repo updated.");
+  } catch (err: any) {
+    // If nothing to commit, that's fine
+    if (err.message?.includes("nothing to commit")) {
+      console.log("No changes to push to public repo.");
+    } else {
+      console.error("Warning: failed to push to public repo:", err.message ?? err);
+    }
+  }
 }
 
 main().catch((err) => {

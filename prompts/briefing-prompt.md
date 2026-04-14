@@ -52,6 +52,10 @@ It's [Day of Week], [Month] [Day], [Year]. Good morning. Here's what's happening
 ## One More Thing
 
 [~50 words. A single interesting, unusual, or thought-provoking story. Something the family might talk about at breakfast. Can be funny, weird, or fascinating.]
+
+## Quote of the Day
+
+[A short wisdom quote to close the briefing. Choose from great thinkers, philosophers, scientists, writers, or historical figures. Pick something that connects to the day's themes when possible, but timeless wisdom is always fine. Attribute the quote. Keep it brief — one or two sentences max. Example: "As Marcus Aurelius wrote, the impediment to action advances action. What stands in the way becomes the way."]
 ```
 
 ## Tone
