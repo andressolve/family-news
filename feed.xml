@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Apr 2026 13:56:33 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 13:08:02 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Friday, April 17, 2026</title>
+      <description>A ten-day ceasefire between Israel and Lebanon took effect early this morning, announced by President Trump after the first direct diplomatic talks between the two countries in decades. Residents o...</description>
+      <pubDate>Fri, 17 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-17.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-17.mp3" length="3321477" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Wednesday, April 15, 2026</title>
       <description>The Middle East is the top story this morning. U.S.-Iran talks have collapsed, and President Trump has declared a blockade of the Strait of Hormuz. American warships are now positioned to stop vess...</description>
