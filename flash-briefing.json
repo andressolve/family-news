@@ -1,5 +1,13 @@
 [
   {
+    "uid": "family-news-2026-04-18",
+    "updateDate": "2026-04-18T08:00:00.0Z",
+    "titleText": "Family News — Saturday, April 18, 2026",
+    "mainText": "",
+    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-18.mp3",
+    "redirectionUrl": "https://andressolve.github.io/family-news"
+  },
+  {
     "uid": "family-news-2026-04-17",
     "updateDate": "2026-04-17T08:00:00.0Z",
     "titleText": "Family News — Friday, April 17, 2026",
@@ -29,14 +37,6 @@
     "titleText": "Family News — Monday, April 13, 2026",
     "mainText": "",
     "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-13.mp3",
-    "redirectionUrl": "https://andressolve.github.io/family-news"
-  },
-  {
-    "uid": "family-news-2026-04-12",
-    "updateDate": "2026-04-12T08:00:00.0Z",
-    "titleText": "Family News — Sunday, April 12, 2026",
-    "mainText": "",
-    "streamUrl": "https://andressolve.github.io/family-news/audio/2026-04-12.mp3",
     "redirectionUrl": "https://andressolve.github.io/family-news"
   }
 ]
