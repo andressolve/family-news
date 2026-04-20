@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2026 15:43:15 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 12:23:07 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Monday, April 20, 2026</title>
+      <description>The Strait of Hormuz is virtually empty for the third straight day, and tensions between the United States and Iran have sharply escalated over the weekend. The U.S. Navy seized an Iranian-flagged ...</description>
+      <pubDate>Mon, 20 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-20.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-20.mp3" length="3280077" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Sunday, April 19, 2026</title>
       <description>The Strait of Hormuz is closed again. Just one day after Iran declared it open for commercial shipping, Iran&apos;s navy shut it down, saying the closure will continue until the U.S. lifts its naval blo...</description>
