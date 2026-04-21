@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 12:23:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 13:25:17 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Tuesday, April 21, 2026</title>
+      <description>The U.S.-Iran situation is at a crossroads. The ceasefire expires tomorrow. Vice President JD Vance, along with special envoy Steve Witkoff and other senior officials, is reportedly departing today...</description>
+      <pubDate>Tue, 21 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-21.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-21.mp3" length="3329637" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Monday, April 20, 2026</title>
       <description>The Strait of Hormuz is virtually empty for the third straight day, and tensions between the United States and Iran have sharply escalated over the weekend. The U.S. Navy seized an Iranian-flagged ...</description>
