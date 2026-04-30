@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2026 14:48:36 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 00:44:10 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Wednesday, April 29, 2026</title>
+      <description>Daily family news briefing</description>
+      <pubDate>Wed, 29 Apr 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-04-29-evening.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-04-29-evening.mp3" length="3370701" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Tuesday, April 28, 2026</title>
       <description>Day fifty-nine of the war between the United States and Iran. President Trump told advisers he is not satisfied with Tehran&apos;s latest peace proposal, which would reopen the Strait of Hormuz but defe...</description>
