@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 May 2026 13:47:48 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2026 14:03:58 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Monday, May 25, 2026</title>
+      <description>Russia struck central Kyiv overnight, killing at least two people and wounding seventy-seven. Among the weapons used was the Oreshnik, a hypersonic ballistic missile capable of carrying a nuclear w...</description>
+      <pubDate>Mon, 25 May 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-05-25.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-05-25.mp3" length="2997333" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Sunday, May 17, 2026</title>
       <description>The biggest story was diplomacy. President Trump spent three days in Beijing for a summit with Xi Jinping, the first meeting between the two leaders in years. The talks covered trade, Taiwan, and I...</description>
