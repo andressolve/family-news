@@ -7,12 +7,28 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2026 21:59:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 13:37:11 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Saturday, June 6, 2026</title>
+      <description>The war with Iran widened sharply this week. Kuwait suspended all commercial flights after drones heavily damaged its main international airport. That came hours after Iran fired missiles at Kuwait...</description>
+      <pubDate>Sat, 06 Jun 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-06-06.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-06-06.mp3" length="2891109" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
+    <item>
+      <title>Family News — Monday, June 1, 2026</title>
+      <description>Colombians voted yesterday for a new president, in an election overshadowed by violence. The campaign saw a string of bombings and political attacks, and turnout held up despite real fear at the po...</description>
+      <pubDate>Mon, 01 Jun 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-06-01.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-06-01.mp3" length="2976453" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Saturday, May 30, 2026</title>
       <description>A Russian drone went off course during an overnight attack on Ukraine and crashed into an apartment building in eastern Romania. Two people were injured. Romania is a NATO member, so even an accide...</description>
