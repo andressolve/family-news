@@ -7,12 +7,20 @@
     <link>https://andressolve.github.io/family-news</link>
     <description>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2026 13:37:11 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 13:44:58 GMT</lastBuildDate>
     <atom:link href="https://andressolve.github.io/family-news/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>Andres</itunes:author>
     <itunes:summary>Daily five-minute news briefing for the family. International news, markets, tech, and gaming.</itunes:summary>
     <itunes:category text="News" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Family News — Tuesday, June 9, 2026</title>
+      <description>The biggest story remains the Middle East. Iran and Israel both say they are halting attacks after a sharp escalation over the past few days, with President Trump pressing both sides to stop shooti...</description>
+      <pubDate>Tue, 09 Jun 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://andressolve.github.io/family-news/audio/2026-06-09.mp3</guid>
+      <enclosure url="https://andressolve.github.io/family-news/audio/2026-06-09.mp3" length="2732469" type="audio/mpeg" />
+      <itunes:duration>300</itunes:duration>
+    </item>
     <item>
       <title>Family News — Saturday, June 6, 2026</title>
       <description>The war with Iran widened sharply this week. Kuwait suspended all commercial flights after drones heavily damaged its main international airport. That came hours after Iran fired missiles at Kuwait...</description>
